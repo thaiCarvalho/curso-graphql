@@ -5,7 +5,7 @@
  - instalar pacotes: nodemon e graphql apollo-server
  - no package.json adicionar o script para start do apollo-server "start": "nodemon"
 
-	`code`
+`
   query {
     hello
   }
@@ -16,3 +16,4 @@
     }
   }
 `
+
