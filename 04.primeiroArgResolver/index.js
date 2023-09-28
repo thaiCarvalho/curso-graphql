@@ -49,7 +49,6 @@ const resolvers = {
       return obj.telefone_fixo
     },
     perfil(usuario) {
-      console.log(usuario);
       return perfis.find(p => p.id === usuario.perfil)
     }
   },
