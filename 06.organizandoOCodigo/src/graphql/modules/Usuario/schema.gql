@@ -6,11 +6,18 @@ type Usuario {
   perfil: Perfil
 }
 
+input UsuarioInput {
+  nome: String
+  email: String
+  telefone: String
+}
+
 type Query {
   usuario(id: Int): Usuario
   usuarios: [Usuario]
 }
 
 type Mutation {
-  criarUsuario(nome: String email: String telefone: String): Usuario!
+  criarUsuario(data: UsuarioInput): Usuario!
+  atualizarUsuario(id: Int!, data: UsuarioInput): Usuario!
 }
