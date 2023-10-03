@@ -54,6 +54,20 @@ module.exports = {
       db.usuarios.splice(indice, 1, novoUsuario)
 
       return novoUsuario
+    },
+
+    deletarUsuario(_, {filtro: { id, email }}) {
+      return deletarUsuarioFiltro(id ? {id} : {email})
     }
   }
+}
+
+function deletarUsuarioFiltro(filtro) {
+  const chave = Object.keys(filtro)[0]
+  const valor = Object.values(filtro)[0]
+
+  const usuarioEncontrado = db.usuarios.find(u => u[chave] === valor)
+  db.usuarios = db.usuarios.filter(u => u[chave] !== valor)
+
+  return !!usuarioEncontrado
 }
